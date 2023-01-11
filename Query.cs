@@ -65,11 +65,11 @@ namespace ChameleonProject
 
 
 
-       
+
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-           
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -84,67 +84,79 @@ namespace ChameleonProject
                 if (!Exist())
                 {
                     int caja = Convert.ToInt32(txtCaja.Text);
-                    var fechaCargaCaja = db.Cajas.Where(l => l.CAJ_Id == caja).Select(l => l.CAJ_FecCarga).SingleOrDefault();                    
+                    var fechaCargaCaja = db.Cajas.Where(l => l.CAJ_Id == caja).Select(l => l.CAJ_FecCarga).SingleOrDefault();
+                    var fechaCargaHastaClasificacion = db.Clasificadas.Where(l => l.CAJ_Id == caja && l.CLA_FecHa != null).OrderBy(l => l.CLA_FecHa).Select(l => l.CLA_FecHa).FirstOrDefault();
+
                     FechaCaja = Convert.ToDateTime(fechaCargaCaja);
-                    //fechaCargaHastaClasificacion = Convert.ToDateTime(fechaCargaHastaClasificacion);
+                    fechaCargaHastaClasificacion = Convert.ToDateTime(fechaCargaHastaClasificacion);
+                    if (fechaCargaHastaClasificacion == Convert.ToDateTime("01/01/0001"))
+                    {
+                        fechaCargaHastaClasificacion = null;
+                    }
 
                     var date = new DateTime(2015, 12, 31);
-                    var isValid = db.Clasificadas.Any(c => c.CAJ_Id == caja && c.CLA_FecHa <= date);
 
-
-
-
-
-                    if (fechaCargaCaja <= date)
+                    if (fechaCargaCaja <= date && fechaCargaHastaClasificacion == null)
                     {
                         inventario.CAJ_Id = caja;
                         inventario.Retirado = true;
                         inventario.FechaCarga = DateTime.Now;
                         db.InventarioCajas.Add(inventario);
                         db.SaveChanges();
-                        showMessage("Esta caja es para enviar a Interfile", 2000);
+                        showMessage("Esta caja es para enviar a Interfile", 650);
                         dgvAD.Rows.Add(txtCaja.Text, inventario.Retirado == true ? "Si" : "No", inventario.FechaCarga);
                         txtCaja.Text = "";
 
                     }
 
-                    //else if (fechaCargaHastaClasificacion != null && fechaCargaHastaClasificacion <= date)
-                    //{
-                    //    inventario.CAJ_Id = caja;
-                    //    inventario.Retirado = true;
-                    //    inventario.FechaCarga = DateTime.Now;
-                    //    db.InventarioCajas.Add(inventario);
-                    //    db.SaveChanges();
-                    //    showMessage("Esta caja es para enviar a Interfile", 2000);
-                    //    dgvAD.Rows.Add(txtCaja.Text, inventario.Retirado == true ? "Si" : "No", inventario.FechaCarga);
-                    //    txtCaja.Text = "";
-                    //}
-                    //else
-                    //{
-                    //    inventario.CAJ_Id = caja;
-                    //    inventario.Retirado = false;
-                    //    inventario.FechaCarga = DateTime.Now;
-                    //    db.InventarioCajas.Add(inventario);
-                    //    db.SaveChanges();
-                    //    showMessage("Esta caja es para dejar en Roggio", 2000);
-                    //    dgvAD.Rows.Add(txtCaja.Text, inventario.Retirado == true ? "Si" : "No", inventario.FechaCarga);
-                    //    txtCaja.Text = "";
-                    //}
+                    else if (fechaCargaHastaClasificacion != null && fechaCargaHastaClasificacion <= date)
+                    {
+                        inventario.CAJ_Id = caja;
+                        inventario.Retirado = true;
+                        inventario.FechaCarga = DateTime.Now;
+                        db.InventarioCajas.Add(inventario);
+                        db.SaveChanges();
+                        showMessage("Esta caja es para enviar a Interfile", 650);
+                        dgvAD.Rows.Add(txtCaja.Text, inventario.Retirado == true ? "Si" : "No", inventario.FechaCarga);
+                        txtCaja.Text = "";
+                    }
+                    else
+                    {
+                        inventario.CAJ_Id = caja;
+                        inventario.Retirado = false;
+                        inventario.FechaCarga = DateTime.Now;
+                        db.InventarioCajas.Add(inventario);
+                        db.SaveChanges();
+                        showMessage("Esta caja es para dejar en Roggio", 2000);
+                        txtCaja.Text = "";
+                    }
+
+
+                  label2.Text  = dgvAD.Rows.Count.ToString();
+
                 }
-                else
-                {
-                    showMessage("Ya se cargo anteriormente.", 2000);
-                    txtCaja.Text = "";
-                    return;
-                  
-                }
-              
+            }
+            else
+            {
+                showMessage("Ya se cargo anteriormente.", 2000);
+                txtCaja.Text = "";
+                return;
 
             }
+
+
+
         }
 
         private void StartProgram(object sender, EventArgs e)
         {
+            txtCaja.Focus();
+        }
+
+        private void ClearData(object sender, EventArgs e)
+        {
+            txtCaja.Text = label2.Text =  "";
+            dgvAD.Rows.Clear();
             txtCaja.Focus();
         }
     }

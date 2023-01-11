@@ -49,7 +49,6 @@ C:\Users\NSABA\Desktop\InventarioRoggio\bin\x86\Debug\EntityFramework.SqlServer.
 C:\Users\NSABA\Desktop\InventarioRoggio\bin\x86\Debug\EntityFramework.xml
 C:\Users\NSABA\Desktop\InventarioRoggio\bin\x86\Debug\EntityFramework.SqlServer.xml
 C:\Users\NSABA\Desktop\InventarioRoggio\obj\x86\Debug\FullProgram.csproj.AssemblyReference.cache
-C:\Users\NSABA\Desktop\InventarioRoggio\obj\x86\Debug\FullProgram.csproj.SuggestedBindingRedirects.cache
 C:\Users\NSABA\Desktop\InventarioRoggio\obj\x86\Debug\ChameleonProject.Home.resources
 C:\Users\NSABA\Desktop\InventarioRoggio\obj\x86\Debug\ChameleonProject.MainScreen.resources
 C:\Users\NSABA\Desktop\InventarioRoggio\obj\x86\Debug\ChameleonProject.Presentation.resources
