@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ROGGIO2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cajas">
+    <Key>
+      <PropertyRef Name="CAJ_Id" />
+    </Key>
+    <Property Name="CAJ_Id" Type="int" Nullable="false" />
+    <Property Name="CLI_Id" Type="int" />
+    <Property Name="OT_Id" Type="bigint" Nullable="false" />
+    <Property Name="CAJ_Esta" Type="smallint" />
+    <Property Name="CAJ_Fila" Type="smallint" />
+    <Property Name="CAJ_Colu" Type="smallint" />
+    <Property Name="CAJ_Prec1" Type="char" MaxLength="10" />
+    <Property Name="CAJ_Prec2" Type="char" MaxLength="10" />
+    <Property Name="CCO_Id" Type="smallint" />
+    <Property Name="DEP_Id" Type="smallint" />
+    <Property Name="TAM_Id" Type="smallint" />
+    <Property Name="CAJ_Guarda" Type="bit" />
+    <Property Name="CAJ_Stickers" Type="bit" />
+    <Property Name="CAJ_Especial" Type="bit" />
+    <Property Name="CAJ_Ubicada" Type="bit" />
+    <Property Name="CAJ_Consultada" Type="bit" />
+    <Property Name="Tipo_Mov" Type="char" MaxLength="2" />
+    <Property Name="usr_mov" Type="char" MaxLength="20" />
+    <Property Name="CAJ_FecCarga" Type="datetime" />
+    <Property Name="Caj_Grande" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clasificadas">
+    <Key>
+      <PropertyRef Name="CAJ_Id" />
+      <PropertyRef Name="CLA_SubCaja" />
+    </Key>
+    <Property Name="CAJ_Id" Type="int" Nullable="false" />
+    <Property Name="CLA_SubCaja" Type="int" Nullable="false" />
+    <Property Name="TEM_Id" Type="int" />
+    <Property Name="STE_Id" Type="int" />
+    <Property Name="SST_Id" Type="int" />
+    <Property Name="CLA_FecDe" Type="datetime" />
+    <Property Name="CLA_FecHa" Type="datetime" />
+    <Property Name="CLA_LetDe" Type="char" MaxLength="50" />
+    <Property Name="CLA_LetHa" Type="char" MaxLength="50" />
+    <Property Name="CLA_NroDe" Type="char" MaxLength="50" />
+    <Property Name="CLA_NroHa" Type="char" MaxLength="50" />
+    <Property Name="CLA_FecVe" Type="datetime" />
+    <Property Name="CLA_Observa" Type="char" MaxLength="500" />
+    <Property Name="TIPO_Mov" Type="char" MaxLength="2" />
+    <Property Name="USR_Mov" Type="char" MaxLength="20" />
+    <Property Name="cli_id" Type="int" />
+    <Property Name="caj_prec1" Type="char" MaxLength="10" />
+    <Property Name="caj_prec2" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="InventarioCajas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CAJ_Id" Type="int" Nullable="false" />
+    <Property Name="Retirado" Type="bit" Nullable="false" />
+    <Property Name="FechaCarga" Type="date" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ROGGIO2ModelStoreContainer">
+    <EntitySet Name="Cajas" EntityType="Self.Cajas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clasificadas" EntityType="Self.Clasificadas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventarioCajas" EntityType="Self.InventarioCajas" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

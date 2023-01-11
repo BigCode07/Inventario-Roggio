@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ROGGIO2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Caja">
+    <Key>
+      <PropertyRef Name="CAJ_Id" />
+    </Key>
+    <Property Name="CAJ_Id" Type="Int32" Nullable="false" />
+    <Property Name="CLI_Id" Type="Int32" />
+    <Property Name="OT_Id" Type="Int64" Nullable="false" />
+    <Property Name="CAJ_Esta" Type="Int16" />
+    <Property Name="CAJ_Fila" Type="Int16" />
+    <Property Name="CAJ_Colu" Type="Int16" />
+    <Property Name="CAJ_Prec1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="CAJ_Prec2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="CCO_Id" Type="Int16" />
+    <Property Name="DEP_Id" Type="Int16" />
+    <Property Name="TAM_Id" Type="Int16" />
+    <Property Name="CAJ_Guarda" Type="Boolean" />
+    <Property Name="CAJ_Stickers" Type="Boolean" />
+    <Property Name="CAJ_Especial" Type="Boolean" />
+    <Property Name="CAJ_Ubicada" Type="Boolean" />
+    <Property Name="CAJ_Consultada" Type="Boolean" />
+    <Property Name="Tipo_Mov" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="usr_mov" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="CAJ_FecCarga" Type="DateTime" Precision="3" />
+    <Property Name="Caj_Grande" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clasificada">
+    <Key>
+      <PropertyRef Name="CAJ_Id" />
+      <PropertyRef Name="CLA_SubCaja" />
+    </Key>
+    <Property Name="CAJ_Id" Type="Int32" Nullable="false" />
+    <Property Name="CLA_SubCaja" Type="Int32" Nullable="false" />
+    <Property Name="TEM_Id" Type="Int32" />
+    <Property Name="STE_Id" Type="Int32" />
+    <Property Name="SST_Id" Type="Int32" />
+    <Property Name="CLA_FecDe" Type="DateTime" Precision="3" />
+    <Property Name="CLA_FecHa" Type="DateTime" Precision="3" />
+    <Property Name="CLA_LetDe" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="CLA_LetHa" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="CLA_NroDe" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="CLA_NroHa" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="CLA_FecVe" Type="DateTime" Precision="3" />
+    <Property Name="CLA_Observa" Type="String" MaxLength="500" FixedLength="true" Unicode="false" />
+    <Property Name="TIPO_Mov" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="USR_Mov" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="cli_id" Type="Int32" />
+    <Property Name="caj_prec1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="caj_prec2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="InventarioCaja">
+    <Key>
+      <PropertyRef Name="CAJ_Id" />
+      <PropertyRef Name="Retirado" />
+      <PropertyRef Name="FechaCarga" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CAJ_Id" Type="Int32" Nullable="false" />
+    <Property Name="Retirado" Type="Boolean" Nullable="false" />
+    <Property Name="FechaCarga" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityContainer Name="ROGGIO2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cajas" EntityType="Self.Caja" />
+    <EntitySet Name="Clasificadas" EntityType="Self.Clasificada" />
+    <EntitySet Name="InventarioCajas" EntityType="Self.InventarioCaja" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ROGGIO2ModelStoreContainer" CdmEntityContainer="ROGGIO2Entities">
+    <EntitySetMapping Name="Cajas">
+      <EntityTypeMapping TypeName="ROGGIO2Model.Caja">
+        <MappingFragment StoreEntitySet="Cajas">
+          <ScalarProperty Name="CAJ_Id" ColumnName="CAJ_Id" />
+          <ScalarProperty Name="CLI_Id" ColumnName="CLI_Id" />
+          <ScalarProperty Name="OT_Id" ColumnName="OT_Id" />
+          <ScalarProperty Name="CAJ_Esta" ColumnName="CAJ_Esta" />
+          <ScalarProperty Name="CAJ_Fila" ColumnName="CAJ_Fila" />
+          <ScalarProperty Name="CAJ_Colu" ColumnName="CAJ_Colu" />
+          <ScalarProperty Name="CAJ_Prec1" ColumnName="CAJ_Prec1" />
+          <ScalarProperty Name="CAJ_Prec2" ColumnName="CAJ_Prec2" />
+          <ScalarProperty Name="CCO_Id" ColumnName="CCO_Id" />
+          <ScalarProperty Name="DEP_Id" ColumnName="DEP_Id" />
+          <ScalarProperty Name="TAM_Id" ColumnName="TAM_Id" />
+          <ScalarProperty Name="CAJ_Guarda" ColumnName="CAJ_Guarda" />
+          <ScalarProperty Name="CAJ_Stickers" ColumnName="CAJ_Stickers" />
+          <ScalarProperty Name="CAJ_Especial" ColumnName="CAJ_Especial" />
+          <ScalarProperty Name="CAJ_Ubicada" ColumnName="CAJ_Ubicada" />
+          <ScalarProperty Name="CAJ_Consultada" ColumnName="CAJ_Consultada" />
+          <ScalarProperty Name="Tipo_Mov" ColumnName="Tipo_Mov" />
+          <ScalarProperty Name="usr_mov" ColumnName="usr_mov" />
+          <ScalarProperty Name="CAJ_FecCarga" ColumnName="CAJ_FecCarga" />
+          <ScalarProperty Name="Caj_Grande" ColumnName="Caj_Grande" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clasificadas">
+      <EntityTypeMapping TypeName="ROGGIO2Model.Clasificada">
+        <MappingFragment StoreEntitySet="Clasificadas">
+          <ScalarProperty Name="CAJ_Id" ColumnName="CAJ_Id" />
+          <ScalarProperty Name="CLA_SubCaja" ColumnName="CLA_SubCaja" />
+          <ScalarProperty Name="TEM_Id" ColumnName="TEM_Id" />
+          <ScalarProperty Name="STE_Id" ColumnName="STE_Id" />
+          <ScalarProperty Name="SST_Id" ColumnName="SST_Id" />
+          <ScalarProperty Name="CLA_FecDe" ColumnName="CLA_FecDe" />
+          <ScalarProperty Name="CLA_FecHa" ColumnName="CLA_FecHa" />
+          <ScalarProperty Name="CLA_LetDe" ColumnName="CLA_LetDe" />
+          <ScalarProperty Name="CLA_LetHa" ColumnName="CLA_LetHa" />
+          <ScalarProperty Name="CLA_NroDe" ColumnName="CLA_NroDe" />
+          <ScalarProperty Name="CLA_NroHa" ColumnName="CLA_NroHa" />
+          <ScalarProperty Name="CLA_FecVe" ColumnName="CLA_FecVe" />
+          <ScalarProperty Name="CLA_Observa" ColumnName="CLA_Observa" />
+          <ScalarProperty Name="TIPO_Mov" ColumnName="TIPO_Mov" />
+          <ScalarProperty Name="USR_Mov" ColumnName="USR_Mov" />
+          <ScalarProperty Name="cli_id" ColumnName="cli_id" />
+          <ScalarProperty Name="caj_prec1" ColumnName="caj_prec1" />
+          <ScalarProperty Name="caj_prec2" ColumnName="caj_prec2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InventarioCajas">
+      <EntityTypeMapping TypeName="ROGGIO2Model.InventarioCaja">
+        <MappingFragment StoreEntitySet="InventarioCajas">
+          <ScalarProperty Name="CAJ_Id" ColumnName="CAJ_Id" />
+          <ScalarProperty Name="Retirado" ColumnName="Retirado" />
+          <ScalarProperty Name="FechaCarga" ColumnName="FechaCarga" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
