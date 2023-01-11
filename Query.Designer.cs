@@ -34,7 +34,6 @@
             this.FechaCargad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCaja = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -169,7 +168,6 @@
         private System.Windows.Forms.DataGridView dgvAD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCaja;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CajaAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn Retirado;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaCargad;

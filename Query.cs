@@ -2,6 +2,7 @@
 using System;
 
 using System.Linq;
+using System.Media;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -103,7 +104,7 @@ namespace ChameleonProject
                         inventario.FechaCarga = DateTime.Now;
                         db.InventarioCajas.Add(inventario);
                         db.SaveChanges();
-                        showMessage("Esta caja es para enviar a Interfile", 650);
+                        showMessage("Esta caja es para enviar a Interfile", 250);
                         dgvAD.Rows.Add(txtCaja.Text, inventario.Retirado == true ? "Si" : "No", inventario.FechaCarga);
                         txtCaja.Text = "";
 
@@ -116,7 +117,7 @@ namespace ChameleonProject
                         inventario.FechaCarga = DateTime.Now;
                         db.InventarioCajas.Add(inventario);
                         db.SaveChanges();
-                        showMessage("Esta caja es para enviar a Interfile", 650);
+                        showMessage("Esta caja es para enviar a Interfile", 250);
                         dgvAD.Rows.Add(txtCaja.Text, inventario.Retirado == true ? "Si" : "No", inventario.FechaCarga);
                         txtCaja.Text = "";
                     }
@@ -127,7 +128,8 @@ namespace ChameleonProject
                         inventario.FechaCarga = DateTime.Now;
                         db.InventarioCajas.Add(inventario);
                         db.SaveChanges();
-                        showMessage("Esta caja es para dejar en Roggio", 2000);
+                        SystemSounds.Hand.Play();
+                        showMessage("Esta caja es para dejar en Roggio",1600);
                         txtCaja.Text = "";
                     }
 
@@ -138,6 +140,7 @@ namespace ChameleonProject
             }
             else
             {
+
                 showMessage("Ya se cargo anteriormente.", 2000);
                 txtCaja.Text = "";
                 return;
